@@ -18,6 +18,7 @@ var DEFAULT_OPTIONS = {
 	secret: process.env.S3_SECRET,
 	bucket: process.env.S3_BUCKET,
 	region: process.env.S3_REGION || 'us-east-1',
+	endpoint: process.env.S3_ENDPOINT,
 	path: '/',
 	generateFilename: nameFunctions.randomFilename,
 	uploadParams: {},
@@ -78,6 +79,7 @@ function S3Adapter (options, schema) {
 		accessKeyId: this.options.key,
 		secretAccessKey: this.options.secret,
 		region: this.options.region,
+		endpoint: this.options.endpoint,
 	});
 
 	// Ensure the generateFilename option takes a callback
